@@ -1,0 +1,179 @@
+type: collection.insomnia.rest/5.0
+name: SPS TEST
+meta:
+  id: wrk_e385bd22c4b44b719ac1d660b57ac8f1
+  created: 1755346801902
+  modified: 1755346801902
+collection:
+  - url: http://localhost:3000
+    name: DOCUMENTATION
+    meta:
+      id: req_657ff571699f42dea6f1650a929cde27
+      created: 1755346817198
+      modified: 1755348045107
+      isPrivate: false
+      sortKey: -1755346817198
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/users
+    name: GET USERS
+    meta:
+      id: req_5552605c1705406290b0209915327443
+      created: 1755346837246
+      modified: 1755347134269
+      isPrivate: false
+      sortKey: -1755227841121.5
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/users
+    name: CREATE USER
+    meta:
+      id: req_1638f8282fca4dfe9d1bbeec33e59165
+      created: 1755346861893
+      modified: 1755347186335
+      isPrivate: false
+      sortKey: -1755168353083.25
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "felipe lima",
+        	"email": "fmlima4@outlook.com",
+        	"password": "1234"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/users/2
+    name: UPDATE USER
+    meta:
+      id: req_df9138c59be34c098b7bfa32343f3fb7
+      created: 1755346877949
+      modified: 1755347235180
+      isPrivate: false
+      sortKey: -1755138609064.125
+    method: PUT
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "felipe miranda"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/users/2
+    name: DELETE USER
+    meta:
+      id: req_01fe4f883ec54d0babf0b172078b49dd
+      created: 1755346907994
+      modified: 1755347263940
+      isPrivate: false
+      sortKey: -1755123737054.5625
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/auth/login
+    name: AUTH
+    meta:
+      id: req_9f378331c745417caed1233dd984a1ed
+      created: 1755346929212
+      modified: 1755347382180
+      isPrivate: false
+      sortKey: -1755287329159.75
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "adsmin@spsgroup.com.br",
+        	"password": "1234"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_da5ac70e67c498887aba71234ad932d4cc16ed62
+    created: 1755346801906
+    modified: 1755346801906
+environments:
+  name: Base Environment
+  meta:
+    id: env_da5ac70e67c498887aba71234ad932d4cc16ed62
+    created: 1755346801905
+    modified: 1755346801905
+    isPrivate: false

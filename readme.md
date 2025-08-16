@@ -1,52 +1,59 @@
-----------------------------------
-ESPANHOL
-----------------------------------
+🚀 Tecnologias Utilizadas
 
-## Prueba NODE
+Node.js - Runtime JavaScript
+Express.js - Framework web
+JWT (jsonwebtoken) - Autenticação
+bcryptjs - Hash de senhas
+Joi - Validação de dados
+Jest & Supertest - Testes automatizados
+CORS - Controle de acesso
+dotenv - Gerenciamento de variáveis de ambiente
 
-- Crear un CRUD (API REST) en Node para el registro de usuarios.
-- Para la creación de la prueba, utilizar un repositorio falso de usuarios (puede ser en memoria).
+🔧 Instalação e Configuração
+Pré-requisitos
 
-## Reglas
+Node.js (v14 ou superior)
+npm ou yarn
 
-- Debe existir un usuario administrador previamente registrado para utilizar la autenticación (no es necesario cifrar la contraseña):
-{
-  "name": "admin",
-  "email": "admin@spsgroup.com.br",
-  "type": "admin",
-  "password": "1234"
-}
+Instalação
+# Clone o repositório
+git clone <url-do-repositorio>
+cd test-sps-server
 
-- Crear una ruta de autenticación (token Jwt).
-- Las rutas de la API solo pueden ser ejecutadas si el usuario está autenticado.
-- Debe ser posible añadir usuarios con los campos: email, nombre, type, password.
-- No debe ser posible registrar un correo electrónico ya existente.
-- Debe ser posible eliminar usuarios.
-- Debe ser posible modificar los datos de un usuario.
+# Instale as dependências
+npm install
 
+# Configure as variáveis de ambiente
+cp .env.example .env
 
-----------------------------------
-PORTUGUÊS
-----------------------------------
+Configuração do .env
+PORT=3000
+JWT_SECRET=your-super-secret-jwt-key-change-in-production
+JWT_EXPIRES_IN=24h
 
-# Teste NODE
+🏃‍♂️ Execução
+# Modo desenvolvimento (com nodemon)
+npm run dev
 
-- Criar um CRUD (API REST) em node para cadastro de usuários
-- Para a criação do teste utilizar um repositório fake dos usuários. (Pode ser em memória)
+# Modo produção
+npm start
 
-## Regras
+🧪 Testes
+# Executar todos os testes
+npm test
 
-- Deve existir um usuário admin previamente cadastrado para utilizar autenticação (não precisa criptografar a senha);
-  {
-    name: "admin",
-    email: "admin@spsgroup.com.br",
-    type: "admin"
-    password: "1234"
-  }
+# Executar testes em modo watch
+npm run test:watch
 
-- Criar rota de autenticação (Jwt token)
-- As rotas da API só podem ser executadas se estiver autenticada
-- Deve ser possível adicionar usuários. Campos: email, nome, type, password
-- Não deve ser possível cadastrar o e-mail já cadastrado
-- Deve ser possível remover usuário
-- Deve ser possível alterar os dados do usuário
+# Executar testes com coverage
+npm test -- --coverage
+
+📡 Endpoints da API
+Exemplos de requisi;'ao disponiveis no arquivo REQUESTS EXAMPLES.yaml'
+
+📝 Observações Técnicas
+Banco em memória: Os dados são perdidos quando o servidor é reiniciado
+JWT: Tokens têm validade configurável (padrão: 24h)
+Senhas: Nunca retornadas nas respostas da API
+Auto-exclusão: Usuários não podem deletar suas próprias contas
+Unicidade de email: Validação tanto na criação quanto na atualização
