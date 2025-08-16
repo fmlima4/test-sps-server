@@ -31,9 +31,9 @@ const authMiddleware = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
+
     const user = database.findUserById(decoded.id);
-    
+
     if (!user) {
       return res.status(401).json({
         error: 'Token inválido',

@@ -7,7 +7,7 @@ class UserController {
 
       // Verificar se email já existe
       const existingUser = database.findUserByEmail(email);
-      
+
       if (existingUser) {
         return res.status(409).json({
           error: 'Email já cadastrado',
@@ -18,7 +18,7 @@ class UserController {
       const newUser = await database.createUser({
         name,
         email,
-        type: type || 'user', //se nao informar crio como usuario normal
+        type: type || 'user', // se nao informar crio como usuario normal
         password
       });
 
@@ -26,7 +26,6 @@ class UserController {
         message: 'Usuário criado com sucesso',
         user: newUser
       });
-
     } catch (error) {
       console.error('Erro ao criar usuário:', error);
       res.status(500).json({
@@ -39,13 +38,12 @@ class UserController {
   async list(req, res) {
     try {
       const users = database.getAllUsers();
-      
+
       res.status(200).json({
         message: 'Usuários listados com sucesso',
         users,
         total: users.length
       });
-
     } catch (error) {
       console.error('Erro ao listar usuários:', error);
       res.status(500).json({
@@ -62,7 +60,7 @@ class UserController {
 
       // Verificar se usuário existe
       const existingUser = database.findUserById(id);
-      
+
       if (!existingUser) {
         return res.status(404).json({
           error: 'Usuário não encontrado',
@@ -70,10 +68,9 @@ class UserController {
         });
       }
 
-      // Se email [e um campo sendo atualizado, verificar se não existe outro usuário com o novo email
       if (updateData.email && updateData.email !== existingUser.email) {
         const emailExists = database.findUserByEmail(updateData.email);
-        
+
         if (emailExists) {
           return res.status(409).json({
             error: 'Email já cadastrado',
@@ -88,7 +85,6 @@ class UserController {
         message: 'Usuário atualizado com sucesso',
         user: updatedUser
       });
-
     } catch (error) {
       console.error('Erro ao atualizar usuário:', error);
       res.status(500).json({
@@ -103,7 +99,7 @@ class UserController {
       const { id } = req.params;
 
       const existingUser = database.findUserById(id);
-      
+
       if (!existingUser) {
         return res.status(404).json({
           error: 'Usuário não encontrado',
@@ -130,7 +126,6 @@ class UserController {
       res.status(200).json({
         message: 'Usuário deletado com sucesso'
       });
-
     } catch (error) {
       console.error('Erro ao deletar usuário:', error);
       res.status(500).json({

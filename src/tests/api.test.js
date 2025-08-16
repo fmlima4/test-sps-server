@@ -4,7 +4,6 @@ const app = require('../index');
 describe('API SPS Test', () => {
   let authToken;
   let testUserId;
-  let server;
 
   // Configurar token de autenticação antes dos testes
   beforeAll(async () => {
@@ -16,12 +15,6 @@ describe('API SPS Test', () => {
       });
 
     authToken = loginResponse.body.token;
-  });
-
-  // Fechar conexões após todos os testes
-  afterAll(async () => {
-    // Aguardar um pouco para garantir que todas as operações terminem
-    await new Promise(resolve => setTimeout(resolve, 100));
   });
 
   describe('GET /', () => {
@@ -97,7 +90,7 @@ describe('API SPS Test', () => {
       expect(response.body.user.name).toBe(userData.name);
       expect(response.body.user.email).toBe(userData.email);
       expect(response.body.user.password).toBeUndefined();
-      
+
       testUserId = response.body.user.id;
     });
 
@@ -160,7 +153,7 @@ describe('API SPS Test', () => {
       expect(response.body.users).toBeDefined();
       expect(Array.isArray(response.body.users)).toBe(true);
       expect(response.body.total).toBeGreaterThan(0);
-      
+
       // Verificar se senhas não são retornadas
       response.body.users.forEach(user => {
         expect(user.password).toBeUndefined();

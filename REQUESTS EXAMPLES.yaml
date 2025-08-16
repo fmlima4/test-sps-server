@@ -39,7 +39,7 @@ collection:
         value: insomnia/11.0.2
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+      token: token
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -72,7 +72,7 @@ collection:
         value: insomnia/11.0.2
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+      token: token
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -103,7 +103,7 @@ collection:
         value: insomnia/11.0.2
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+      token: token
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -126,7 +126,7 @@ collection:
         value: insomnia/11.0.2
     authentication:
       type: bearer
-      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhZG1pbkBzcHNncm91cC5jb20uYnIiLCJ0eXBlIjoiYWRtaW4iLCJpYXQiOjE3NTUzNDcxMDIsImV4cCI6MTc1NTQzMzUwMn0.wmjU3K1pRicTiv7VzP90LTjVUUCblpOEYfxYsfJRPmc
+      token: token
     settings:
       renderRequestBody: true
       encodeUrl: true

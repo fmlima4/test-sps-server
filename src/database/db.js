@@ -9,7 +9,7 @@ class InMemoryDatabase {
 
   async initializeAdminUser() {
     const hashedPassword = await bcrypt.hash('1234', 10);
-    
+
     this.users.push({
       id: this.nextId++,
       name: 'admin',
@@ -23,7 +23,7 @@ class InMemoryDatabase {
 
   async createUser(userData) {
     const hashedPassword = await bcrypt.hash(userData.password, 10);
-    
+
     const newUser = {
       id: this.nextId++,
       ...userData,
@@ -31,7 +31,7 @@ class InMemoryDatabase {
       createdAt: new Date(),
       updatedAt: new Date()
     };
-    
+
     this.users.push(newUser);
     return this.getUserWithoutPassword(newUser);
   }
@@ -50,7 +50,7 @@ class InMemoryDatabase {
 
   updateUser(id, userData) {
     const userIndex = this.users.findIndex(user => user.id === parseInt(id));
-    
+
     if (userIndex === -1) {
       return null;
     }
@@ -70,7 +70,7 @@ class InMemoryDatabase {
 
   deleteUser(id) {
     const userIndex = this.users.findIndex(user => user.id === parseInt(id));
-    
+
     if (userIndex === -1) {
       return false;
     }
@@ -80,6 +80,7 @@ class InMemoryDatabase {
   }
 
   getUserWithoutPassword(user) {
+    // eslint-disable-next-line no-unused-vars
     const { password, ...userWithoutPassword } = user;
     return userWithoutPassword;
   }

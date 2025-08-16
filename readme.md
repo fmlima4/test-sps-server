@@ -38,6 +38,17 @@ npm run dev
 # Modo produção
 npm start
 
+# Rodar com docker
+# Subir a aplicação
+docker-compose up -d
+
+# Ver logs
+docker-compose logs -f
+
+# Parar
+docker-compose down
+
+
 🧪 Testes
 # Executar todos os testes
 npm test

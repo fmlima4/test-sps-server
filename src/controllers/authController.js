@@ -7,7 +7,7 @@ class AuthController {
       const { email, password } = req.body;
 
       const user = database.findUserByEmail(email);
-      
+
       if (!user) {
         return res.status(401).json({
           error: 'Credenciais inválidas',
@@ -16,7 +16,7 @@ class AuthController {
       }
 
       const isValidPassword = await database.validatePassword(password, user.password);
-      
+
       if (!isValidPassword) {
         return res.status(401).json({
           error: 'Credenciais inválidas',
@@ -44,7 +44,6 @@ class AuthController {
         token,
         expiresIn: process.env.JWT_EXPIRES_IN
       });
-
     } catch (error) {
       console.error('Erro no login:', error);
       res.status(500).json({
