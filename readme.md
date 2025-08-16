@@ -21,7 +21,7 @@ git clone <url-do-repositorio>
 cd test-sps-server
 
 # Instale as dependências
-npm install
+pnpm install
 
 # Configure as variáveis de ambiente
 cp .env.example .env
