@@ -36,6 +36,7 @@ routes.get('/', (req, res) => {
       },
       users: {
         'GET /users': 'Listar usuários (requer autenticação)',
+        'GET /users/:id': 'Buscar usuário por ID (requer autenticação)',
         'POST /users': 'Criar usuário (requer autenticação)',
         'PUT /users/:id': 'Atualizar usuário (requer autenticação)',
         'DELETE /users/:id': 'Deletar usuário (requer autenticação)'
@@ -162,6 +163,46 @@ routes.post('/auth/login', validateLogin, authController.login);
 // Rotas de usuários (todas protegidas)
 routes.use('/users', authMiddleware);
 routes.get('/users', userController.list);
+/**
+ * @swagger
+ * /users/{id}:
+ *   get:
+ *     summary: Buscar usuário por ID
+ *     tags: [Usuários]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID do usuário
+ *     responses:
+ *       200:
+ *         description: Usuário encontrado
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 user:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     name:
+ *                       type: string
+ *                     email:
+ *                       type: string
+ *       404:
+ *         description: Usuário não encontrado
+ *       401:
+ *         description: Token de autenticação inválido
+ */
+routes.get('/users/:id', userController.getById);
 routes.post('/users', validateCreateUser, userController.create);
 
 /**
@@ -228,6 +269,7 @@ routes.use('*', (req, res) => {
       'GET /metrics',
       'POST /auth/login',
       'GET /users',
+      'GET /users/:id',
       'POST /users',
       'PUT /users/:id',
       'DELETE /users/:id'

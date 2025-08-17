@@ -169,6 +169,55 @@ describe('API SPS Test', () => {
     });
   });
 
+  describe('GET /users/:id', () => {
+    let existingUserId;
+
+    beforeAll(async () => {
+    // Criar um usuário para teste
+      const createResponse = await request(app)
+        .post('/users')
+        .set('Authorization', `Bearer ${authToken}`)
+        .send({
+          name: 'Usuário Teste Get',
+          email: 'teste-get@example.com',
+          password: 'senha123'
+        });
+
+      existingUserId = createResponse.body.user.id;
+    });
+
+    it('deve retornar um usuário específico por ID', async () => {
+      const response = await request(app)
+        .get(`/users/${existingUserId}`)
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(200);
+
+      expect(response.body.message).toBe('Usuário encontrado com sucesso');
+      expect(response.body.user.id).toBe(existingUserId);
+      expect(response.body.user.name).toBe('Usuário Teste Get');
+      expect(response.body.user.email).toBe('teste-get@example.com');
+      expect(response.body.user.password).toBeUndefined();
+      expect(response.body.user.type).toBeUndefined();
+    });
+
+    it('deve retornar erro 404 para usuário inexistente', async () => {
+      const response = await request(app)
+        .get('/users/999999')
+        .set('Authorization', `Bearer ${authToken}`)
+        .expect(404);
+
+      expect(response.body.error).toBe('Usuário não encontrado');
+    });
+
+    it('deve retornar erro sem token de autenticação', async () => {
+      const response = await request(app)
+        .get(`/users/${existingUserId}`)
+        .expect(401);
+
+      expect(response.body.error).toBe('Token não fornecido');
+    });
+  });
+
   describe('PUT /users/:id', () => {
     it('deve atualizar um usuário existente', async () => {
       const updateData = {

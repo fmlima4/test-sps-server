@@ -134,6 +134,38 @@ class UserController {
       });
     }
   }
+
+  async getById(req, res) {
+  try {
+    const { id } = req.params;
+
+    const user = database.findUserById(id);
+
+    if (!user) {
+      return res.status(404).json({
+        error: 'Usuário não encontrado',
+        message: 'Usuário com o ID especificado não existe'
+      });
+    }
+
+    const userData = {
+      id: user.id,
+      name: user.name,
+      email: user.email
+    };
+
+    res.status(200).json({
+      message: 'Usuário encontrado com sucesso',
+      user: userData
+    });
+  } catch (error) {
+    console.error('Erro ao buscar usuário:', error);
+    res.status(500).json({
+      error: 'Erro interno do servidor',
+      message: 'Ocorreu um erro durante a busca do usuário'
+    });
+  }
+}
 }
 
 module.exports = new UserController();
